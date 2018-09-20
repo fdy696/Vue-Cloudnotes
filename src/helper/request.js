@@ -3,7 +3,7 @@ import axios from 'axios';
 import { resolve } from 'path';
 
 // 2.配置默认值
-axios.defaults.baseURL = 'http://note-server.hunger-valley.com';
+axios.defaults.baseURL = '//note-server.hunger-valley.com';
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 axios.defaults.withCredentials = true;
 
