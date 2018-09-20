@@ -96,11 +96,11 @@ import {mapGetters,mapActions, mapMutations} from 'vuex';
       text-align: center;
       font-weight: 500;
       font-size: 30px;
-      height: 40px;
-      line-height: 40px;
+      height: 42px;
+      line-height: 42px;
 
     }
-    margin-left: 55px;
+    margin-left: 120px;
     display: flex;
     height: 100%;
     .note-detail {
@@ -108,7 +108,7 @@ import {mapGetters,mapActions, mapMutations} from 'vuex';
       height: 100%;
       flex: 1;
       .note-bar {
-        height: 32px;
+        height: 33px;
         line-height: 30px;
         color: #ccc;
         font-size: 14px;
@@ -117,14 +117,16 @@ import {mapGetters,mapActions, mapMutations} from 'vuex';
         padding-right: 20px;
         span {margin-right: 20px}
         button {
-          background: #fff;
-          border:1px solid #eee;
-          margin-top: 4px;
+          font-family: 'Microsoft Yahei';
+          background: #66B2FF;
+          color: #fff;
           margin-right: 30px;
-          padding: 0 5px;
+          padding:  5px;
+          width: 80px;
+          margin-top: -1px;
           cursor: pointer;
-          color: #E56149;
-          float: right}
+          float: right;
+          }
 
       }
       .note-title {

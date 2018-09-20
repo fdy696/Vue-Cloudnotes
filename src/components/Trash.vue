@@ -95,14 +95,12 @@ import {mapGetters,mapActions, mapMutations} from 'vuex';
   .trash {
     display: flex;
     min-height: 100%;
-    margin-left: 54px;
-    background: #fff;
+    margin-left: 120px;
     .trash-sidebar {
       width: 290px;
       position: absolute;
       top: 0;
       bottom: 0;
-      background: #eee;
       border-right: 1px solid #ccc;
       .trash-title {
         flex:1;
@@ -140,25 +138,27 @@ import {mapGetters,mapActions, mapMutations} from 'vuex';
     }
     .trash-detail {
        width: 100%;
+       background: #fff;
       .trash-detail-title {
         user-select: none;
         margin-left: 290px;
         padding-left: 15px;
-        height: 30px;
-        line-height: 30px;
+        height: 32px;
+        line-height: 32px;
         border-bottom: 1px solid #ccc;
         padding-right: 50px;
         color: #ccc;
         span {margin-right: 20px}
         button {
-          background: #fff;
-          border:1px solid #eee;
-          margin-top: 4px;
+          font-family: 'Microsoft Yahei';
+          background: #66B2FF;
+          color: #fff;
           margin-right: 30px;
-          padding: 0 5px;
+          padding:  5px;
+          width: 80px;
+
           cursor: pointer;
-          color: #E56149;
-          float: right}
+          float: right;}
       }
       div.content {
         margin-left: 290px;

@@ -17,7 +17,7 @@ import {mapGetters,mapActions} from 'vuex'
      this.checkoutLogin()
    },
    computed : {
-     ...mapGetters(['sulg'])
+     ...mapGetters(['sulg','username'])
    },
    methods: {
      ...mapActions(['checkoutLogin'])

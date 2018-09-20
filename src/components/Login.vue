@@ -146,7 +146,7 @@ import {mapActions} from 'vuex'
       float: left;
       width: 530px;
       height: 100%;
-      background: url(//cloud.hunger-valley.com/17-12-13/38476998.jpg-middle) no-repeat center center/100% 100%;
+      background: url(//cloud.hunger-valley.com/17-12-13/38476998.jpg-middle) no-repeat center center;
     }
     .form {
       height: 100%;

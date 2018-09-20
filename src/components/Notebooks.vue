@@ -1,7 +1,7 @@
 <template>
  <div class="notebook-list">
     <div class="new-book">
-      <a href="" @click.prevent.stop='onCreate'><i class="iconfont icon-plus"></i>新建笔记本</a>
+      <a href="" @click.prevent.stop='onCreate'>新建笔记本 </i></a>
     </div>
     <div class="book-list">
       <h3>笔记本列表<span>({{notebooks.length}})</span></h3>
@@ -91,25 +91,26 @@ import {mapGetters,mapActions} from 'vuex';
 
 <style lang='less' scoped>
     .notebook-list {
-      margin-left: 55px;
+      margin-left: 120px;
       .iconfont {font-size: 12px; color:#B3C0C8;margin-right: 6px;}
       .new-book {
-        height: 45px;
+        height: 50px;
         border-bottom: 1px solid #ccc;
-        line-height: 45px;
+        line-height: 50px;
         a {
-          background: #fff;
-          font-size: 12px;
-          padding: 5px;
-          margin: 10px 0 0 23px;
+          background: #66B2FF;
+          color: #fff;
+          font-size: 16px;
+          padding: 10px;
+          margin: 10px 0 0 30px;
+          border-radius: 2px;
         }
       }
       .book-list {
         width: 969px;
         margin: 22px auto;
         h3 {
-          font-size: 12px;
-          font-weight: 700;
+          font-size: 15px;
           height: 32px;
           line-height: 32px;
           padding-left: 10px;
@@ -124,6 +125,8 @@ import {mapGetters,mapActions} from 'vuex';
             border-bottom: 1px solid #ccc;
             line-height: 40px;
             font-weight: 700;
+            color: rgba(44, 51, 60);
+            i {font-size: 15px;color: #66B2FF}
             .count {color: #ccc;font-weight: 100;font-size: 12px;}
             .action,.time {
               float: right;
@@ -132,7 +135,7 @@ import {mapGetters,mapActions} from 'vuex';
               font-weight: normal;
               margin-left: 5px;
               cursor: pointer;
-              &:hover {color:#36bc6c}
+              &:hover {color:#66B2FF}
             }
             }
         }

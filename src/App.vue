@@ -24,7 +24,8 @@ html, body, #app {
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #eee;
+  background: #F2F6FC;
+  color: rgba(44, 51, 60, 0.652)
 }
 
 </style>

@@ -1,6 +1,6 @@
 <template>
  <div class='note-sidebar'>
-   <span class='btn add-note' @click='onAddNote'>+ 添加笔记</span>
+   <span class='btn add-note' @click='onAddNote'>添加笔记</span>
    <div class="dropdown">
       <el-dropdown @command="handleCommand">
       <span class="el-dropdown-link">
@@ -107,35 +107,39 @@ import {mapGetters,mapActions, mapMutations} from 'vuex';
       line-height: 30px;
     }
 .note-sidebar {
-  width: 290px;
+  width: 300px;
   height: 100%;
   border-right: 1px solid #ccc;
   .add-note {
-    position: absolute;
-    left: 260px;
-    top: 12px;
-    background: #fff;
+    float: right;
+    height: 30px;
+    line-height: 30px;
+    width: 80px;
+    text-align: center;
     z-index: 10;
-    border: 1px solid #ccc;
     border-radius: 3px;
     cursor: pointer;
-    padding: 3px;
+    margin: 7px;
+    background: #66B2FF;
+    color: #fff
   }
   .dropdown {
     background: #f7f7f7;
     text-align: center;
-    height: 45px;
-    line-height: 45px;
+    height: 46px;
+    line-height: 46px;
     border-bottom: 1px solid #ccc;
   }
   .menu {
     display: flex;
+    height: 35px;
+    line-height: 35px;
   }
   .menu div{
     flex: 1;
     float: left;
-    padding: 5px;
     text-align: center;
+    font-weight: 600;
     border-bottom: 1px solid #ccc;
     border-left: 1px solid #ccc;
   }
@@ -152,7 +156,7 @@ import {mapGetters,mapActions, mapMutations} from 'vuex';
       &.active {background: #000;}
       span {
         display: inline-block;
-        width: 140px;
+        width: 150px;
       }
     }
   }
