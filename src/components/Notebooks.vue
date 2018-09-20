@@ -22,7 +22,71 @@
 </template>
 
 <script>
+import {mapStates,mapGetters,mapActions} from 'vuex';
+ export default {
+   data () {
+     return {
+     }
+   },
+   computed: {
+     ...mapGetters(['notebooks']),
+   },
 
+   methods: {
+     ...mapActions([
+     'getNotebooks',
+     'addNotebook',
+     'deleteNotebook',
+     'updateNotebook',
+     'checkoutLogin']),
+     onCreate(){
+       this.$prompt('请输入标题', '新建笔记本', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          inputPattern: /^.{1,30}$/,
+          inputErrorMessage: '标题不能为空'
+        }).then(({value }) => {
+          this.$message({
+            type: 'success',
+            message: '创建笔记本成功 ' + value
+          });
+          this.addNotebook({title:value})
+        })
+     },
+     onDelete(notebook){
+       this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+           this.deleteNotebook({notebookId:notebook.id});
+        })
+     },
+     onEdit(notebook){
+       this.$prompt('请输入新的笔记本标题', '修改笔记本标题', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          inputPattern: /^.{1,30}$/,
+          inputErrorMessage: '标题不能为空'
+        }).then(({ value }) =>{
+          this.updateNotebook({notebookId:notebook.id,title:value})
+          this.$message({
+            type: 'success',
+            message: '修改成功'
+          });
+        })
+     }
+   },
+   created(){
+     this.checkoutLogin({path:'/notebooks'}).then(()=>{
+       this.getNotebooks();
+     })
+
+   },
+   components: {
+
+   }
+ }
 </script>
 
 <style lang='less' scoped>

@@ -13,7 +13,24 @@
 </template>
 
 <script>
+import avatar from '@/components/Avatar'
+ export default {
+   data () {
+     return {
 
+     }
+   },
+   methods: {
+     logout(){
+       Auth.logout().then(res=>{
+        this.$router.push('/login')
+       })
+     }
+   },
+   components: {
+     avatar
+   }
+ }
 </script>
 
 <style scoped lang='less'>

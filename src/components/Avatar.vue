@@ -5,27 +5,27 @@
 </template>
 
 <script>
-// import {mapGetters,mapActions} from 'vuex'
+import {mapGetters,mapActions} from 'vuex'
 
-//  export default {
-//    data () {
-//      return {
+ export default {
+   data () {
+     return {
 
-//      }
-//    },
-//    created(){
-//      this.checkoutLogin()
-//    },
-//    computed : {
-//      ...mapGetters(['sulg'])
-//    },
-//    methods: {
-//      ...mapActions(['checkoutLogin'])
-//    },
-//    components: {
+     }
+   },
+   created(){
+     this.checkoutLogin()
+   },
+   computed : {
+     ...mapGetters(['sulg'])
+   },
+   methods: {
+     ...mapActions(['checkoutLogin'])
+   },
+   components: {
 
-//    }
-//  }
+   }
+ }
 </script>
 
 <style lang='less' scoped>

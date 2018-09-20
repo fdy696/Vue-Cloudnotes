@@ -34,7 +34,105 @@
 </template>
 
 <script>
-//
+//import {mapGetters,mapActions} from 'vuex'
+
+ export default {
+   data () {
+     return {
+       isShowLogin:true,
+       isShowRegister: false,
+       register: {
+         username:"",
+         password:"",
+         notice: ' 请牢记用户名和密码',
+         iserror: false
+       },
+       login: {
+         username:"",
+         password:"",
+         notice: '请输入用户名和密码',
+         iserror: false
+       }
+    }
+   },
+  methods: {
+    ...mapActions(['loginUser','registerUser']),
+        showLogin(){
+        this.isShowLogin = true;
+        this.isShowRegister = false;
+          },
+        showRegister(){
+          this.isShowLogin = false;
+          this.isShowRegister = true;
+        },
+        onRegister(){
+          if(!/^[\w\u4e00-\u9fa5]{3,15}$/.test(this.register.username)){
+            this.register.iserror = true;
+            this.register.notice = '用户名3~15个字符，仅限字母数字下划线中文';
+            return;
+          }
+          if(!/^.{6,16}$/.test(this.register.password)){
+            this.register.iserror = true;
+            this.register.notice = '密码长度为6~16个字符';
+            return
+          }
+          this.registerUser({username:this.register.username,password:this.register.password}
+          ).then(()=>{
+
+          }).catch(res=>{
+
+          })
+
+        },
+        onLogin(){
+          if(!/^[\w\u4e00-\u9fa5]{3,15}$/.test(this.login.username)){
+            this.login.iserror = true;
+            this.login.notice = '用户名3~15个字符，仅限字母数字下划线中文';
+            return;
+          }
+          if(!/^.{6,16}$/.test(this.login.password)){
+            this.login.iserror = true;
+            this.login.notice = '密码长度为6~16个字符';
+            return
+          }
+
+          this.loginUser({username:this.login.username,password:this.login.password}
+          ).then(res=>{
+            this.login.iserror = false;
+            this.login.notice = '';
+          }).catch(res=>{
+            this.login.iserror = true;
+            this.login.notice = res.msg;
+          })
+        },
+        onRegister(){
+          if(!/^[\w\u4e00-\u9fa5]{3,15}$/.test(this.login.username)){
+            this.register.iserror = true;
+            this.register.notice = '用户名3~15个字符，仅限字母数字下划线中文';
+            return;
+          }
+          if(!/^.{6,16}$/.test(this.register.password)){
+            this.register.iserror = true;
+            this.register.notice = '密码长度为6~16个字符';
+            return
+          }
+
+          this.registerUser({username:this.register.username,password:this.register.password}
+          ).then(res=>{
+            this.register.iserror = false;
+            this.register.notice = '';
+          }).catch(res=>{
+            this.register.iserror = true;
+            this.register.notice = res.msg;
+          })
+        },
+
+
+       },
+   components: {
+
+   }
+ }
 </script>
 
 <style lang='less' scoped>

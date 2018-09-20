@@ -29,7 +29,63 @@
 </template>
 
 <script>
+import {mapStates,mapGetters,mapActions, mapMutations} from 'vuex';
 
+
+ export default {
+   data () {
+     return {
+     }
+   },
+   computed: {
+     ...mapGetters([
+       'notes',
+       'notebooks',
+       'curBook',
+       'curNote'
+       ])
+   },
+    created(){
+      // 获取笔记本列表
+     this.getNotebooks().then(()=>{
+      //  获取当前笔记本
+       this.setCurBookId({notebookId:this.$route.query.notebookId})
+      //  获取所有笔记
+         if(this.curBook && this.curBook.id)  return this.getNotes(
+           {notebookId:this.curBook.id})}
+         ).then(()=>{
+          //  获取当前笔记
+           this.setCurNoteId({curnoteId:this.$route.query.noteId});
+     })
+   },
+   methods: {
+    ...mapMutations([
+       'setCurNoteId',
+       'setCurBookId'
+     ]),
+     ...mapActions([
+       'getNotebooks',
+       'getNotes',
+       'addNote'
+     ]),
+
+     handleCommand(notebookId) {
+       this.setCurBookId({notebookId});
+       this.getNotes({notebookId:this.curBook.id}).then(()=>{
+         this.setCurNoteId({noteId:this.$route.query.noteId})
+       })
+      },
+      onAddNote(){
+        this.addNote({notebookId:this.curBook.id}).then((res)=>{
+          this.setCurNoteId({noteId:res.id})
+        })
+      }
+   },
+
+   components: {
+
+   }
+ }
 
 
 </script>
