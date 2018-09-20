@@ -25,7 +25,7 @@
 <script>
 import NoteSidebar from '@/components/NotesSidebar';
 import _ from 'lodash';
-import {mapStates,mapGetters,mapActions, mapMutations} from 'vuex';
+import {mapGetters,mapActions, mapMutations} from 'vuex';
 
  export default {
    data () {

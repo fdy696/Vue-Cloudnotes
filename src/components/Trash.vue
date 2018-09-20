@@ -35,42 +35,11 @@
 import Trash from '@/apis/trash'
 
 window.trash = Trash;
-import {mapStates,mapGetters,mapActions, mapMutations} from 'vuex';
+import {mapGetters,mapActions, mapMutations} from 'vuex';
 
  export default {
    data () {
      return {
-    //    curTrashnote: {
-    //        title:'追女神的方法',
-    //        content: '追到我的女神 我用了三个办法 办法一 坚持 办法二 不要脸 办法三 坚持不要脸 她带我回家 她爸爸很无礼地跟我说 我养了我女儿二十年 我凭什么把她嫁给你 我回答 你养她二十年 我要养她四十年 还要照顾你三十年 你凭什么不把她嫁给我',
-    //        id:'1xxxfhgc',
-    //        createdTime: '2天前',
-    //        updateTime:'三天前',
-    //        belongNotebook: '我的笔记本1',
-
-    //      },
-    //    trashnotes: [
-    //      {
-    //        title:'trashnote1',
-    //        content: 'dsadasda',
-    //        id:'1xxxfhgc',
-    //        createdTime: '2天前',
-    //        updateTime:'三天前',
-    //        belongNotebook: '我的笔记本1',
-    //      }, {
-    //        title:'trashnote2',
-    //        id:'2bkjbknbn',
-    //        createdTime: '6天前',
-    //        updateTime:'1天前',
-    //        belongNotebook: '我的笔记本1',
-    //      }, {
-    //        title:'trashnote3',
-    //        id:'1bkbnbnmbn',
-    //        createdTime: '10天前',
-    //        updateTime:'三天前',
-    //        belongNotebook: '我的笔记本1',
-    //      }
-    //    ]
         }
    },
   created(){
