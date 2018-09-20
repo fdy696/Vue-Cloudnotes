@@ -1,6 +1,6 @@
 <template>
  <div class="avator">
-   <h2>{{未}}</h2>
+   <h2>{{sulg}}</h2>
  </div>
 </template>
 

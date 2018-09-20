@@ -1,6 +1,6 @@
 <template>
  <div id='note-detail' class='notes'>
-   <note-sidebar @updata:notes='val=>notes=val'></note-sidebar>
+   <note-sidebar></note-sidebar>
    <div class="note-detail">
      <div class="note-bar">
        <span class="createdTime">创建日期:{{curNote.createdFriendlyTime}}</span>
@@ -23,7 +23,61 @@
 </template>
 
 <script>
+import NoteSidebar from '@/components/NotesSidebar';
+import _ from 'lodash';
+import {mapStates,mapGetters,mapActions, mapMutations} from 'vuex';
 
+ export default {
+   data () {
+     return {
+       statusText: '已保存',
+       showEdit : false,
+       showRead : true
+     }
+   },
+  computed: {
+     ...mapGetters(['curNote'])
+   },
+  methods :{
+    ...mapMutations([
+      'setCurNoteId',
+
+    ]),
+    ...mapActions([
+      'deleteNote',
+      'updateNote',
+      'checkoutLogin'
+    ]),
+    onupdateNote: _.debounce(function() {
+      this.statusText = '正在编辑'
+      this.updateNote({noteId:this.curNote.id,
+      title:this.curNote.title,
+      content:this.curNote.content}
+      ).then(()=>{this.statusText = '保存完成'}
+      ).catch(()=>{this.statusText = '保存出错'})
+    },500),
+    onDelete(){
+      this.deleteNote({noteId:this.curNote.id})
+    },
+    onEdit(e) {
+      this.showEdit=!this.showEdit;
+      this.showRead = !this.showRead;
+      e.target.innerHTML = e.target.innerHTML==='编辑'?'阅读':'编辑'
+    }
+   },
+  created(){
+    this.checkoutLogin();
+  },
+  beforeRouteUpdate(to,from,next){
+    if(to.query.noteId){
+      this.setCurNoteId({curnoteId:to.query.noteId})
+    }
+     next();
+   },
+   components: {
+     NoteSidebar
+   }
+ }
 
 </script>
 

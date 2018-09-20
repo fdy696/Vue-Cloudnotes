@@ -18,12 +18,13 @@ export default {
 
 <style>
 @import '//at.alicdn.com/t/font_496303_kqrjhri8l25d0a4i.css';
+html, body, #app {
+  height: 100%;
+}
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  background: #eee;
 }
+
 </style>

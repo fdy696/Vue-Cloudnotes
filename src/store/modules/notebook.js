@@ -29,7 +29,6 @@ const mutations = {
     notebook.title = title;
   },
   setCurBookId(state,{notebookId}) {
-    console.log(notebookId)
     state.curBookId = notebookId
   }
 }
