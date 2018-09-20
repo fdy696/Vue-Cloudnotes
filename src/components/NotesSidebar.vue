@@ -56,6 +56,13 @@ import {mapStates,mapGetters,mapActions, mapMutations} from 'vuex';
          ).then(()=>{
           //  获取当前笔记
            this.setCurNoteId({curnoteId:this.$route.query.noteId});
+           this.$router.replace({
+             path: '/notes',
+             query: {
+               noteId:this.curNote.id,
+               notebookId: this.curBook.id
+             }
+           })
      })
    },
    methods: {
