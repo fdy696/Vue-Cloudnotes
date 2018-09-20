@@ -16,7 +16,7 @@ export default new Router({
     }, {
       path: '/notes',
       name: 'NoteDetail',
-      component: () => import('@/components/Note.vue')
+      component: () => import('@/components/Notes.vue')
     }, {
       path: '/trash',
       name: 'Trash',
