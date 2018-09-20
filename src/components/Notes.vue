@@ -36,7 +36,7 @@ import {mapStates,mapGetters,mapActions, mapMutations} from 'vuex';
      }
    },
   computed: {
-     ...mapGetters(['curNote'])
+     ...mapGetters(['curNote','curBook'])
    },
   methods :{
     ...mapMutations([
@@ -57,7 +57,16 @@ import {mapStates,mapGetters,mapActions, mapMutations} from 'vuex';
       ).catch(()=>{this.statusText = '保存出错'})
     },500),
     onDelete(){
-      this.deleteNote({noteId:this.curNote.id})
+      this.deleteNote({noteId:this.curNote.id}).then(()=>{
+        this.setCurNoteId({});
+        this.$router.replace({
+          path: '/notes',
+          query: {
+            noteId: this.curNote.id,
+            notebookId: this.curBook.id
+          }
+        })
+      })
     },
     onEdit(e) {
       this.showEdit=!this.showEdit;

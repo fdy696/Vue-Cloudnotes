@@ -102,7 +102,15 @@ import {mapStates,mapGetters,mapActions, mapMutations} from 'vuex';
       'revertTrashNote'
       ]),
     onDelete(){
-      this.deleteTrashNote({noteId:this.curTrashNote.id})
+      this.deleteTrashNote({noteId:this.curTrashNote.id}).then(()=>{
+        this.setTrashNoteId({})
+        this.$router.replace({
+          path: '/trash',
+          query: {
+            noteId: this.curTrashNote.id
+          }
+        })
+      })
     },
     onRevert({noteId}){
       this.revertTrashNote({noteId:this.curTrashNote.id})

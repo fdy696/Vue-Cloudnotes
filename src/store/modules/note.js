@@ -27,7 +27,6 @@ const mutations = {
     state.notes.unshift(note)
   },
   deleteNote(state,{noteId}){
-    console.log(state.notes)
     state.notes = state.notes.filter(note=>note.id !==noteId) || {}
   },
   updateNote(state,{noteId,title,content}){
